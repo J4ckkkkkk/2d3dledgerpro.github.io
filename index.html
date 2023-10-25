@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2D3D Ledger Pro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px auto;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 5px;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        textarea {
+            width: 80%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>2D3D Ledger Pro</h1>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <label for="encodedText">Enter Key:</label>
+        <input type="text" id="encodedText">
+        <button onclick="decrypt()">Generate</button>
+        <p>Generated Key:</p>
+        <textarea id="decryptedText" rows="1" readonly></textarea>
+    </div>
+
+    <script>
+        function decrypt() {
+            const encodedText = document.getElementById("encodedText").value;
+            try {
+                const decodedText = atob(encodedText);
+                document.getElementById("decryptedText").value = decodedText;
+            } catch (error) {
+                document.getElementById("decryptedText").value = "Invalid input.";
+            }
+        }
+    </script>
+</body>
+</html>
